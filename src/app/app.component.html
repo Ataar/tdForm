@@ -3,7 +3,7 @@
 </h1>
 
 
- <div class="container p-5">
+ <div class="container">
    <div class="row">
       <div class="col-md-9">
         <div class="form-group">
@@ -25,32 +25,42 @@
             </select>
          </div>
       </div>
-   </div> 
-
- 
-   <div class="table-responsive">
-     <table class="table table-bordered text-center text-white">
-       <thead class="thead-dark">
-         <tr>
-           <th>Sr.No</th>
-           <th>Name</th>
-           <th>Team</th>
-           <th>OdiRuns</th>
-           <th>TestRuns</th>
-           <th>DebutYear</th>
-         </tr>
-       </thead>
-       <tbody>
-         <tr *ngFor="let player of playerArr | playerFilter : searchVal; let i = index">
-           <td>{{ i + 1 }}</td>
-           <td>{{ player.name }}</td>
-           <td>{{ player.team }}</td>
-           <td>{{ player.odiRuns }}</td>
-           <td>{{ player.testRuns }}</td>
-           <td>{{ player.debutYear }}</td>
-         </tr>
-       </tbody>
-     </table>
    </div>
- </div>
- 
+
+
+
+   <div class="container-fluid">
+    <div class="table-responsive">
+      <table class="table table-bordered text-center text-white">
+        <thead class="thead-dark">
+          <tr>
+            <th>Sr.No</th>
+            <th>Name</th>
+            <th>Team</th>
+            <th>OdiRuns</th>
+            <th>TestRuns</th>
+            <th>DebutYear</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let player of playerArr | playerFilter : searchVal; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ player.name }}</td>
+            <td>{{ player.team }}</td>
+            <td>{{ player.odiRuns }}</td>
+            <td>{{ player.testRuns }}</td>
+            <td>{{ player.debutYear }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+
+
+
+
+  
+
+
+
