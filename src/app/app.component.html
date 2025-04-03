@@ -1,0 +1,56 @@
+<h1 class="bg-success text-center text-white p-2">
+    PIPE Using Filter
+</h1>
+
+
+ <div class="container p-5">
+   <div class="row">
+      <div class="col-md-9">
+        <div class="form-group">
+           <input 
+           [(ngModel)]="searchVal"
+           type="text" 
+           placeholder="search..." 
+           class="form-control">
+         </div>
+      </div>
+      <div class="col-md-3">
+         <div class="form-group">
+            <select class="form-control">
+               <option value="name">Filter BY Player Name</option>
+               <option value="team">Filter BY Player Team</option>
+               <option value="odiRuns">Filter BY Player OdiRuns</option>
+               <option value="testRuns">Filter BY Player TestRuns</option>
+               <option value="debutYear">Filter BY Player DebutYear</option>
+            </select>
+         </div>
+      </div>
+   </div> 
+
+ 
+   <div class="table-responsive">
+     <table class="table table-bordered text-center text-white">
+       <thead class="thead-dark">
+         <tr>
+           <th>Sr.No</th>
+           <th>Name</th>
+           <th>Team</th>
+           <th>OdiRuns</th>
+           <th>TestRuns</th>
+           <th>DebutYear</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr *ngFor="let player of playerArr | playerFilter : searchVal; let i = index">
+           <td>{{ i + 1 }}</td>
+           <td>{{ player.name }}</td>
+           <td>{{ player.team }}</td>
+           <td>{{ player.odiRuns }}</td>
+           <td>{{ player.testRuns }}</td>
+           <td>{{ player.debutYear }}</td>
+         </tr>
+       </tbody>
+     </table>
+   </div>
+ </div>
+ 

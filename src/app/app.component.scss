@@ -1,0 +1,50 @@
+
+body {
+    background-color: #222; 
+    color: white;
+  }
+  
+  .table {
+    background-color: #111; 
+    border-color: #555;
+  }
+  
+  .table th {
+    background-color: #000; 
+    color: white;
+  }
+  
+  .table td {
+    background-color: #222;
+    color: white;
+  }
+  
+  .form-control {
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+  }
+  
+  .form-control::placeholder {
+    color: #aaa;
+  }
+  
+  .table-responsive {
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+  }
+  
+  @media (max-width: 576px) {
+    .table {
+      font-size: 12px;
+    }
+  }
+  
+  @media (max-width: 768) {
+    select.form-control {
+        width: 200%;
+    }
+    
+    .table {
+      font-size: 12px;
+    }
+  }
