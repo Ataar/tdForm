@@ -20,7 +20,7 @@ header
   padding: 25px;
   border-radius: 15px;
   border:1px solid rgb(7, 7, 7);
-  
+  background-color: rgb(245, 238, 238);
   
 }
 
@@ -62,6 +62,8 @@ header
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
+  background-color: rgb(194, 186, 186);
+  color: rgb(3, 2, 2);
 }
 
 .formData h5{
@@ -73,7 +75,8 @@ header
  .formData p , h5
  {
    text-indent: 25%;
-   margin-top:25px
+   margin-top:25px;
+   font-family: Georgia;
  }
 
 @media (max-width: 768px) {
