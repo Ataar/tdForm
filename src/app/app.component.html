@@ -1,66 +1,227 @@
-<h1 class="bg-success text-center text-white p-2">
-    PIPE Using Filter
-</h1>
+
+<header>Template Driven Form</header>
+<div class="container mt-4 my-4">
+    <div class="row">
+     <div class="col-md-4">
+    <div class="card p-4">
+        <form #signup="ngForm" (ngSubmit)="onSignIn()"> 
 
 
- <div class="container mt-4">
-   <div class="row">
-      <div class="col-md-9">
-        <div class="form-group">
-           <input 
-           [(ngModel)]="searchVal"
-           type="text" 
-           placeholder="search..." 
-           class="form-control">
-         </div>
-      </div>
-      <div class="col-md-3">
-         <div class="form-group">
-            <select class="form-control">
-               <option value="name">Filter BY Player Name</option>
-               <option value="team">Filter BY Player Team</option>
-               <option value="odiRuns">Filter BY Player OdiRuns</option>
-               <option value="testRuns">Filter BY Player TestRuns</option>
-               <option value="debutYear">Filter BY Player DebutYear</option>
-            </select>
-         </div>
-      </div>
-      <div class="container-fluid">
-       <div class="table-responsive">
-         <table class="table table-bordered text-center text-white">
-           <thead class="thead-dark">
-             <tr>
-               <th>Sr.No</th>
-               <th>Name</th>
-               <th>Team</th>
-               <th>OdiRuns</th>
-               <th>TestRuns</th>
-               <th>DebutYear</th>
-             </tr>
-           </thead>
-           <tbody>
-             <tr *ngFor="let player of playerArr | playerFilter : searchVal; let i = index">
-               <td>{{ i + 1 }}</td>
-               <td>{{ player.name }}</td>
-               <td>{{ player.team }}</td>
-               <td>{{ player.odiRuns }}</td>
-               <td>{{ player.testRuns }}</td>
-               <td>{{ player.debutYear }}</td>
-             </tr>
-           </tbody>
-         </table>
+            <div class="form-group">
+             <label for="username">Username</label>
+   
+              
+               <input placeholder="Enter text..."
+               maxlength="12"
+               minlength="6"
+               ngModel 
+               name="username"
+               type="text" 
+               #username="ngModel"
+               class="form-control underline-input" 
+               id="username"
+               pattern="[a-zA-Z]+"
+               />
+   
+   
+               <strong
+               *ngIf="username.invalid && username.touched && username.hasError('required')"
+               class="text-danger">Username is required field </strong>
+   
+              
+               <ng-container *ngIf="username.dirty">
+   
+                 <strong *ngIf="username.hasError('minlength')"
+                 class="text-danger">minlength of username should be 8</strong>
+      
+                 <strong *ngIf="userMaxlength"
+                 class="text-danger">Maxlength should be 12</strong>
+      
+               </ng-container>
+               
+               
+               <strong  *ngIf="username.hasError('pattern')" 
+               class="text-danger">Invalid Pattern</strong>
+                         
+   
+            </div>   
+   
+   
+   
+   
+   
+            <div class="form-group">
+               <label for="email">Email</label>
+               <input placeholder="Enter text..."
+               #email="ngModel"
+               required  
+               ngModel
+               name="email"
+               type="text"
+               class="form-control underline-input"
+               id="email"
+               pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+               />
+   
+               <strong class="text-danger" *ngIf="email.touched && email.hasError('required')">
+                 Email is required field.
+               </strong>
+   
+               <strong class="text-danger" *ngIf="email.dirty && email.hasError('pattern')">
+                  Invalid Email Id {{'abc@gmail.com'}}
+               </strong>
+   
+            </div>  
+   
+   
+   
+   
+            <div class="form-group">
+               <label for="secQuestion">V-zoon</label>
+                  <select
+                  required 
+                  ngModel
+                  name="secQuestion" 
+                  id="secQuestion" 
+                  class="form-control underline-input"
+                  #secQuestion="ngModel"
+                  >
+                     <option value="Enviornment DEPT">Enviornment DEPT</option>
+                     <option value="Tech DEPT">Tech DEPT</option>
+                  </select>
+                  
+               <strong *ngIf="secQuestion.touched && secQuestion.hasError('required')"class="text-danger">
+                  secQuestion field is required.
+               </strong>
+            </div>
+   
+   
+               
+                
+              <div class="form-group text-danger">
+               <label for="feedback">
+               </label>
+                <textarea id="feedback"
+                 required
+                 ngModel
+                 #feedback="ngModel"
+                 name="feedback"
+                 class="form-control underline-input"
+                 id="feedback"
+                 rows="4">
+               </textarea>   
+                   
+               <strong *ngIf="feedback.touched && feedback.hasError('required')">
+                 Your Feedback is Important For Us
+               </strong>
        </div>
-     </div>
-   </div>
-
-
-
+       
+   
+   
+              <div class="form-check mb-3">
+               <input 
+                 class="form-check-input" 
+                 type="checkbox" 
+                 id="isLike" 
+                 name="islike" 
+                 ngModel 
+                 #islike="ngModel">
+               <label class="form-check-label" for="isLike">
+                 Like & Subscribe
+               </label>
+             </div>
+             
+   
+   
+   
+             <div class="form-group">
+   
+                <label *ngFor="let tech of techArr"
+                 [for]="tech.tech01" class="mr-3">
+                 <input type="radio" ngModel
+                  [value]="tech.tech01"
+                  name="tech"
+                  [id]="tech.tech01"
+                  >
+                  {{tech.tech01}}
+                </label>
+               </div>
+              
+   
+   
+   
+   
+   
+            
+   
+   
+        <button type="submit" class="btn btn-outline-info">Sign Up</button> 
+            
+        </form>
+    </div>
+     </div> 
+     
   
 
 
+     <div class="col-md-8 mt-4" *ngIf="submittedData">
+      <h5>Submitted Info:</h5>
+      <p><strong>Username:</strong> {{ submittedData.username }}</p>
+      <p><strong>Email:</strong> {{ submittedData.email }}</p>
+      <p><strong>Department:</strong> {{ submittedData.secQuestion }}</p>
+      <p><strong>Feedback:</strong> {{ submittedData.feedback }}</p>
+      <p><strong>Like:</strong> {{ submittedData.islike }}</p>
+      <p><strong>Contact:</strong> {{ submittedData.tech }}</p>
+    </div>
+    
+    </div>
+</div>
 
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

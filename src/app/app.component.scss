@@ -1,114 +1,28 @@
 
-// body {
-//     background-color: #222; 
-//     color: white;
-//   }
-  
-//   .table {
-//     background-color: #111; 
-//     border-color: #555;
-//   }
-  
-//   .table th {
-//     background-color: #000; 
-//     color: white;
-//   }
-  
-//   .table td {
-//     background-color: #222;
-//     color: white;
-//   }
-  
-//   .form-control {
-//     background-color: #333;
-//     color: white;
-//     border: 1px solid #555;
-//   }
-  
-//   .form-control::placeholder {
-//     color: #aaa;
-//   }
-  
-//   .table-responsive {
-//     box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
-//   }
-  
-//   @media (max-width: 576px) {
-//     .table {
-//       font-size: 12px;
-//     }
-//   }
-  
-//   @media (max-width: 768) {
-//     select.form-control {
-//         width: 200%;
-//     }
-    
-//     .table {
-//       font-size: 12px;
-//     }
-//   }
-
-
-body {
-  background-color: #222; 
-  color: white;
+header
+{
+    background-color: rgb(163, 216, 163);
+    color: rgb(31, 1, 1);
+    padding: 10px;
+    text-align: center;
+    font-size:25px;
+    text-transform: capitalize;
+    font-family:Georgia;
 }
 
-.container-fluid {
-  padding: 10px;
+
+.underline-input
+{
+    border:none;
+    border-bottom: 2px solid #000;
+    padding: 8px;
+    width: 250px;
+    font-size: 16px;
+    outline: none;
 }
 
-.table {
-  background-color: #111; 
-  border-color: #555;
-}
+.underline-input:focus
+{
+  border-bottom-color: #007BFF;
 
-.table th {
-  background-color: #000; 
-  color: white;
-}
-
-.table td {
-  background-color: #222;
-  color: white;
-}
-
-.form-control {
-  background-color: #333;
-  color: white;
-  border: 1px solid #555;
-}
-
-.form-control::placeholder {
-  color: #aaa;
-}
-
-.table-responsive {
-  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
-}
-
-@media (max-width: 768px) { /* Fixed the px */
-  select.form-control {
-    width: 100%; /* Adjusted for better responsiveness */
-  }
-  
-  .table {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 576px) {
-  .table {
-    width: 100%;
-    font-size: 20px;
-  }
-}
-@media (max-width: 480px) { 
- 
-  
-  .table {
-    font-size: 7px;
-    
-  }
 }
