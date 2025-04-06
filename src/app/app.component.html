@@ -6,9 +6,10 @@
     <div class="col-md-4">
       <div class="card">
         <form #signup="ngForm" class="m-auto" (ngSubmit)="onSignIn()">
+
+
           <div class="form-group">
             <label for="username">Username</label>
-
             <input
               required
               placeholder="Enter text..."
@@ -48,6 +49,8 @@
             >
           </div>
 
+
+
           <div class="form-group">
             <label for="email">Email</label>
             <input
@@ -77,6 +80,8 @@
             </strong>
           </div>
 
+
+
           <div class="form-group">
             <label for="secQuestion">V-zoon</label>
             <select
@@ -100,6 +105,8 @@
             </strong>
           </div>
 
+
+
           <div class="form-group">
             <label for="feedback">Feedback </label>
             <textarea 
@@ -119,6 +126,9 @@
             </strong>
           </div>
 
+
+
+
           <div class="form-check mb-3">
             <input
               class="form-check-input"
@@ -133,7 +143,13 @@
             </label>
           </div>
 
-          <div class="form-group">
+
+
+        <!-- Radio button -->
+
+          <!-- <div class="form-group">
+            <span>Choose an option:</span>
+            <br>
             <label
               *ngFor="let tech of techArr"
               [for]="tech.tech01"
@@ -145,15 +161,61 @@
                 [value]="tech.tech01"
                 name="tech"
                 [id]="tech.tech01"
+                />
+                {{ tech.tech01 }}
+
+            </label>
+          </div> -->
+
+
+          <!-- <div class="form-group">
+            <span>Choose an option:</span>
+            <label
+              *ngFor="let tech of techArr"
+              [for]="tech.tech01"
+              class="option-label"
+            >
+              <input
+                type="radio"
+                ngModel
+                [value]="tech.tech01"
+                name="tech"
+                [id]="tech.tech01"
               />
               {{ tech.tech01 }}
             </label>
           </div>
+           -->
+          
 
-          <button type="submit" class="btn btn-outline-info">Sign Up</button>
+          <div class="form-group">
+            <span>Choose an option:</span>
+            <div class="d-flex flex-wrap mt-2">
+              <label
+                *ngFor="let tech of techArr"
+                [for]="tech.tech01"
+                class="mr-4"
+              >
+                <input
+                  type="radio"
+                  ngModel
+                  [value]="tech.tech01"
+                  name="tech"
+                  [id]="tech.tech01"
+                />
+                {{ tech.tech01 }}
+              </label>
+            </div>
+          </div>
+          
+           <!-- Radio button  end -->
+
+           
+
+        <button type="submit" class="btn btn-outline-info">Sign Up</button>
         </form>
-      </div>
-    </div>
+        </div>
+       </div>
 
     <div class="col-md-4 offset-md-2  formData" *ngIf="submittedData">
       <h5>Submitted Info:</h5>
